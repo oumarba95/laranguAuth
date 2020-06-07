@@ -1,0 +1,27 @@
+<title>Login</title>
+<div class="row justify-content-center">
+<div class="mt-5 col-12 col-md-5 col-sm-8 " id="login">
+  <h3 class="text-center mb-4 font-apple-system">Sign in to larangu</h3>
+<!--<div class="alert alert-danger" *ngIf="error" style="font-size: 13px;">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  {{error}}
+</div>-->
+<div class="authentification-form">
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control " id="exampleInputEmail1" name="email" [(ngModel)]="form.email" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <small style="float:right"><a routerLink="/request-password-reset">forget password?</a></small>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="form.password" required>
+    </div>
+    <button type="submit" class="btn btn-success btn-block" [disabled]="f.invalid">Sign in</button>
+  </form>
+  </div>
+  <div class="mt-3 authentification-form" >
+    <span class="text-center">New to Larangu?<a routerLink="/signup">Create an account.</a></span>
+  </div>
+</div>
+</div>

@@ -1,0 +1,46 @@
+<title>Reset Password response</title>
+<div class="row justify-content-center">
+   <div class="mt-5 col-md-5 col-sm-8 " id="login">
+        <h3 class="text-center mb-4 font-apple-system">Change Password for @{{ userName }}</h3>
+ 
+      <div class="alert alert-success" *ngIf="resetDone" style="font-size: 13px;">
+        New password reset successfully.
+      </div>
+      <div class="authentification-form">
+      <form #f="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="form.password" required>
+          </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Confirm password</label>
+          <input type="password" class="form-control" id="exampleInputPassword" name="passwordc" [(ngModel)]="form.password_confirmation" required>
+        </div>
+        <span>Make sure it's at least 15 characters OR at least 8 characters 
+          including a number and a lowercase letter.</span>
+          <button type="submit" class="btn btn-block btn-success">Change password</button>
+      </form>
+  
+      </div>
+
+         
+        <!--<h3>Reset password</h3>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="email" [(ngModel)]="form.email" placeholder="email" required>
+          <small class="text-danger" *ngIf="errors.email">{{errors.email}}</small>
+          <small class="text-danger" *ngIf="emailExist">{{emailExist}}</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="form.password"placeholder="password" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword" name="cpassword" [(ngModel)]="form.password_confirmation"placeholder="password" required>
+            <small class="text-danger" *ngIf="errors.password">{{errors.password}}</small>
+          </div>
+        <button type="submit" class="btn btn-primary mr-2" [disabled]="f.invalid">change password</button>
+    </form>-->
+    </div>
+    </div>

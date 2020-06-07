@@ -1,0 +1,25 @@
+<title>Reset Password request</title>
+<div class="row justify-content-center">
+<div class="mt-5 col-md-5 col-sm-8 " id="login">
+
+  <h3 class="text-center mb-4 font-apple-system">Reset your password</h3>
+ 
+<div class="authentification-form">
+  <form #f="ngForm" (ngSubmit)="onSubmit()">
+    <span *ngIf="sendDone"> Check your email for a link to reset your password. 
+      If it doesn’t appear within a few minutes, check your spam folder.
+    </span>
+    <span *ngIf="!sendDone">Enter your user account's verified email address 
+      and we will send you a password reset link.</span>
+    <div class="form-group mt-1" *ngIf="!sendDone">
+    
+      <input type="email" class="form-control" id="exampleInputEmail1" name="email" placeholder="enter your email address" [(ngModel)]="form.email"  required>
+    
+    </div>
+    <button type="submit" class="btn btn-success btn-block" [disabled]="f.invalid" *ngIf="!sendDone">send reset password email</button>
+</form>
+<a class="btn btn-dark btn-block mt-2" routerLink="/login" *ngIf="sendDone">Return to sign in</a>
+</div>
+ 
+</div>
+</div>

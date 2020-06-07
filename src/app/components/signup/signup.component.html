@@ -1,0 +1,47 @@
+<title>Signup</title>
+<div class="row justify-content-center">
+  <div class="mt-5 col-md-8 col-sm-12">
+  <div class="alert alert-success" *ngIf="signupDone">
+    Signup successfully done!CLICK here to 
+    <a routerLink="/login" class="alert-link"> Signin.</a>
+  </div>
+  <h1 class="text-center">Create your account</h1>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" autocomplete="off" *ngIf="!signupDone" class="mt-5">
+    
+    <div class="form-group">
+        <label for="name" >Name<span class="text-danger">*</span></label>
+        <input type="email" class="form-control" id="name" name="name"  [(ngModel)]="form.name" placeholder="nom" required>
+      </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1" [ngClass]="{'text-danger':successMessages.success_email !== true && onKeyUpEmail ===true}">Email address<span class="text-danger">*</span></label>
+         <div class="inputWithIcon2">
+            <input type="email" class="form-control" id="exampleInputEmail1" (keyup)="onEmailChange()" name="email" [(ngModel)]="form.email" placeholder="email" required>
+            <i class="fas fa-check" *ngIf="successMessages.success_email === true"></i>
+            <i class="fas fa-exclamation-triangle" *ngIf="successMessages.success_email !== true && onKeyUpEmail"></i>
+         </div>
+      <div class="error" *ngIf="errors.email !==null && successMessages.success_email === null ">{{ errors.email }}</div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1" [ngClass]="{'text-danger':successMessages.success_15 !== true && successLUN() !==true  && onKeyUpPassword ===true || errors.password}">Password<span class="text-danger">*</span></label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password" (keyup)="onPasswordChange()" [(ngModel)]="form.password" placeholder="password" required>
+      <div class="error" *ngIf="errors.password && f.submitted">{{ errors.password }}</div>
+      <div class="error-password-text">
+        Make sure it's <span [ngStyle]="{color:successMessages.success_15===true ? 'green' : color}">
+          at least 15 characters</span> OR 
+        <span [ngStyle]="{color:successMessages.success_8===true ? 'green' : color}">
+          at least 8 characters </span>
+          <span [ngStyle]="{color:successMessages.success_number===true ? 'green' : color}">including a number 
+          </span><span>,</span><span [ngStyle]="{color:successMessages.success_lower===true ? 'green' : color}">
+              a lowercase letter</span>
+        <span [ngStyle]="{color:successMessages.success_upper===true ? 'green' : color}">
+          and a uppercase</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password_confirm">Confirm password<span class="text-danger">*</span></label>
+        <input type="password" class="form-control" id="confirm" name="password_confirm" [(ngModel)]="form.password_confirmation" placeholder="confirm password" required>
+      </div>
+    <button type="submit" class="btn btn-prime btn-block mb-2" [disabled]="f.invalid">Sign up</button>
+</form>
+    </div>
+</div>
